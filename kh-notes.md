@@ -4,6 +4,10 @@
 Default SSID is OnStepX, password is "password".  It will serve its webpage from http://192.168.0.1
 OnstepX is version 10.24c
 
+## 3d printed panels
+
+Based on the excellent existing models - but tweaked to fit the RA brake and not require metal inserts for threads.  Editable [here](https://cad.onshape.com/documents/fcc42821c80392797101e68e/w/b736561701c3a8da688b9f02/e/3aa2c8209cb73604b21e2f7d?renderMode=0&uiState=6a6281e563834c4461102bc8), or the STLs are [here](juwei).
+
 ## Building the firmware
 
 ** VERY IMPORTANT *** 
