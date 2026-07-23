@@ -2,6 +2,7 @@
 
 ## Seting up web
 Default SSID is OnStepX, password is "password".  It will serve its webpage from http://192.168.0.1
+OnstepX is version 10.24c
 
 ## Building the firmware
 
@@ -11,7 +12,16 @@ don't actually move.  Also be very careful to use the other specific versions me
 
 ## wiring
 
-The stock Juwei steppers just plug into the E4 board with no need for pin swapping.
+* The stock Juwei steppers just plug into the E4 board with no need for pin swapping.
+* plug the old power switch into XMIN - so it can serve as an emergency stop button
+* attach GPS to YMIN (signal to GPS TX, gnd to gnd).  Attach GPS Vcc to any of the 5V pins on the board
+* Cut the connector off of the 'brake' cable and hook the brake wires to the +/- "HEATER" output - which is reconfigured in firmware
+be brake enable.
+* Connect the power connector to the two +/- Power in screw terminals.
+
+## ASCOM driver
+
+Use version 1.0.40 of the ascom driver - 1.0.43 seems to not connect to the serial port: http://stellarjourney.com/main/onstep-ascom-driver-software/
 
 ## Hand controller
 
@@ -27,3 +37,7 @@ The stock juwei hand controller can probably be reflashed with https://onstep.gr
 * with GPS antenna recommended 7cm ground plane https://avrproject.ru/EB-500/GPS_Antennas_ApplicationNote-GPS-X-08014-.pdf
 * why longitude is inverted https://onstep.groups.io/g/main/topic/negative_longitude_values/99160170
 
+misc notes 
+old gps on com1 or com3
+focuser/flat panel is com12/13?
+new mount is com11

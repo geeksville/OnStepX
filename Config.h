@@ -22,8 +22,8 @@
 //#define THERMISTOR_RPARALLEL      10000 //         Parallel resistor value (Ohms, requires adding the 10k resistors to TB/TE!)
                                           //         Option to extend the temperature measurement range down to -20C or so
 
-// #define LIMIT_SENSE_PIN                34 //         Override default and move limit sense to the FYSETC E4's X-MIN connector
-#define SERIAL_TMC_RX                  35 //         Override default TMC2209 RX pin move to Y-MIN (enable _DRIVER_STATUS to use)
+#define LIMIT_SENSE_PIN                34 //         Override default and move limit sense to the FYSETC E4's X-MIN connector
+// #define SERIAL_TMC_RX                  35 //         Override default TMC2209 RX pin move to Y-MIN (enable _DRIVER_STATUS to use)
 
 #define DISPLAY_WEATHER                ON //         Website, display weather
 #define DISPLAY_INTERNAL_TEMPERATURE   ON //         Website, display internal MCU temperature
@@ -160,7 +160,7 @@
 
 // geeksville
 #define SERIAL_GPS SoftSerial
-#define SERIAL_GPS_RX 34
+#define SERIAL_GPS_RX 35  // y-min connector
 #define SERIAL_GPS_TX 0
 #define SERIAL_GPS_BAUD 9600
 
@@ -184,7 +184,7 @@
 #define GUIDE_DISABLE_BACKLASH        OFF //    OFF, Disable backlash takeup during guiding at <= 1X.                         Option
 
 // LIMITS ------------------------------------------------------ see https://onstep.groups.io/g/main/wiki/Configuration_Mount#LIMITS
-#define LIMIT_SENSE                   OFF //    OFF, HIGH or LOW state on limit sense switch stops movement.                  Option
+#define LIMIT_SENSE                   LOW //    OFF, HIGH or LOW state on limit sense switch stops movement.                  Option
 #define LIMIT_STRICT                  OFF //    OFF, disables limits until unpark goto or sync. ON enables limits at startup. Option
                                           //         note that ON also disables all motion until date/time are set.
 
