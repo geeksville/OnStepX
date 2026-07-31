@@ -14,6 +14,10 @@ Based on the excellent existing models - but tweaked to fit the RA brake and not
 Newer ESP32 Arduino library, downgradeESP32 Expressif library to version 2.0.17. If you don't do this the motors just hum - they
 don't actually move.  Also be very careful to use the other specific versions mentioned in the Onstep E4 link below.
 
+Alternatively use this slick web builder (upload this config) but make sure to set the target type as E4.
+If you need to run the flasher locally (because web version doesn't work) use esptool and go to the github action output 
+to download the full image (including bootloader).  Then you can flash at address zero.
+
 ## wiring
 
 * The stock Juwei steppers just plug into the E4 board with no need for pin swapping.
@@ -41,7 +45,31 @@ The stock juwei hand controller can probably be reflashed with https://onstep.gr
 * with GPS antenna recommended 7cm ground plane https://avrproject.ru/EB-500/GPS_Antennas_ApplicationNote-GPS-X-08014-.pdf
 * why longitude is inverted https://onstep.groups.io/g/main/topic/negative_longitude_values/99160170
 
-misc notes 
-old gps on com1 or com3
-focuser/flat panel is com12/13?
-new mount is com11
+## Excellent reverse engineering
+
+from https://www.cloudynights.com/forums/topic/918425-juwei-17-mounts-on-aliexpress/page/21/#entry13665973
+
+RA: sumtor 42HS4013A4 1.8 degrees (200 steps) (NEMA17) (1.3a)
+DEC: sumtor 42HS4013B4 1.8 degrees (200 steps) (NEMA17) (1.3a)
+
+Motor Drivers: TMC2208 or TMC2209 MAX microsteps: 256 (We have seen both) (Configured to 16 microsteps)
+  I think these were 2A max, the drivers aren't configurable on the stock board
+
+Slew speed: 2.6 degrees per second (configurable, but depends on motor drivers being able to handle the speed)
+
+RA Tracking Accuracy: 1.44 arc-sec
+DEC Tracking Accuracy: 1.44 arc-sec
+
+... Now, I am currently installing a Fysetc E4 board into my juwei-17 mount. It doesn't make a significant difference to the hardware, but does give me configurability of the stepper drivers and if you want, there are more hardware options.
+
+E4 changes:
+Motor Drivers: TMC2209 MAX microsteps:256
+
+I plan to experiment with different microsteps, but lets assume 64 microsteps:
+RA Tracking Accuracy: .86 arc-sec
+DEC Tracking Accuracy: .86 arc-sec
+
+
+The absolute highest you can go is 256, which would get you a .75 arcsecond accuracy, but you sacrifice slew speed.
+
+
