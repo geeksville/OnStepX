@@ -1,4 +1,11 @@
 
+## Juwei-17 mount with Fysetc E4 board
+
+Notes on the process.
+
+Here's a picture of how the board should look while installing. (Ignore the GPS module - you can use one but for this config.h I assumed no GPS connected - just stock juwei hardware)
+
+[![image](juwei/install.jpg)](juwei/install.jpg)
 
 ## Seting up web
 Default SSID is OnStepX, password is "password".  It will serve its webpage from http://192.168.0.1
@@ -29,7 +36,7 @@ be brake enable.
 
 ## ASCOM driver
 
-Use version 1.0.40 of the ascom driver - 1.0.43 seems to not connect to the serial port: http://stellarjourney.com/main/onstep-ascom-driver-software/
+Use version 1.0.43 of the ascom driver.
 
 ## Hand controller
 
